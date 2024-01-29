@@ -45,43 +45,43 @@ function App() {
     }
   };
 
-  const handleSendMessage = async (message) => {
-    try {
-      if (!message) {
-        console.error('Error sending message: message is empty');
-        return;
-      }
+  // const handleSendMessage = async (message) => {
+  //   try {
+  //     if (!message) {
+  //       console.error('Error sending message: message is empty');
+  //       return;
+  //     }
 
-      // Obtener la dirección IP del cliente
-      const response = await fetch('https://api.ipify.org?format=json');
-      const data = await response.json();
-      const clientIP = data.ip;
+  //     // Obtener la dirección IP del cliente
+  //     const response = await fetch('https://api.ipify.org?format=json');
+  //     const data = await response.json();
+  //     const clientIP = data.ip;
 
-      console.log('Sending message:', message, 'from IP:', clientIP); // Registrar el mensaje y la IP del cliente
+  //     console.log('Sending message:', message, 'from IP:', clientIP); // Registrar el mensaje y la IP del cliente
 
-      // Agregar la dirección IP al mensaje
-      const messageWithIP = `${message} - Sent from: ${clientIP}`;
+  //     // Agregar la dirección IP al mensaje
+  //     const messageWithIP = `${message} - Sent from: ${clientIP}`;
 
-      // Enviar el mensaje a Supabase
-      const { data: newMessageData, error } = await supabase.from('messages').insert([{ content: messageWithIP }]);
-      if (error) {
-        throw error;
-      }
-      if (newMessageData !== null && newMessageData.length > 0) {
-        const formattedMessage = {
-          ...newMessageData[0],
-          timestamp: new Date(newMessageData[0].timestamp).toLocaleString(),
-          content: `📌 ${newMessageData[0].content}`
-        };
-        setMessages(prevMessages => [...prevMessages, formattedMessage]);
-        console.log('Message sent:', formattedMessage); // Registrar el mensaje enviado
-      } else {
-        console.error('Error sending message: newMessageData is null or empty');
-      }
-    } catch (error) {
-      console.error('Error sending message:', error.message);
-    }
-  };
+  //     // Enviar el mensaje a Supabase
+  //     const { data: newMessageData, error } = await supabase.from('messages').insert([{ content: messageWithIP }]);
+  //     if (error) {
+  //       throw error;
+  //     }
+  //     if (newMessageData !== null && newMessageData.length > 0) {
+  //       const formattedMessage = {
+  //         ...newMessageData[0],
+  //         timestamp: new Date(newMessageData[0].timestamp).toLocaleString(),
+  //         content: `📌 ${newMessageData[0].content}`
+  //       };
+  //       setMessages(prevMessages => [...prevMessages, formattedMessage]);
+  //       console.log('Message sent:', formattedMessage); // Registrar el mensaje enviado
+  //     } else {
+  //       console.error('Error sending message: newMessageData is null or empty');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error sending message:', error.message);
+  //   }
+  // };
 
 
   return (
