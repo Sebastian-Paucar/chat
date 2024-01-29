@@ -54,13 +54,12 @@ function App() {
 
       // Obtener la dirección IP del cliente
       // const response = await fetch('https://api.ipify.org?format=json');
-      const data = await response.json();
+      //const data = await response.json();
+     // const clientIP = null;
 
       console.log('Sending message:', message); // Registrar el mensaje y la IP del cliente
-
       // Agregar la dirección IP al mensaje
-      const messageWithIP = `${message} - Sent from: ${clientIP}`;
-
+      const messageWithIP = `${message}`;
       // Enviar el mensaje a Supabase
       const { data: newMessageData, error } = await supabase.from('messages').insert([{ content: messageWithIP }]);
       if (error) {
