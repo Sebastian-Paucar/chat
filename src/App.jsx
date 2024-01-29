@@ -60,7 +60,7 @@ function App() {
       console.log('Sending message:', message, 'from IP:', clientIP); // Registrar el mensaje y la IP del cliente
 
       // Agregar la dirección IP al mensaje
-      const messageWithIP = `${message} - Sent from: ${clientIP}`;
+      const messageWithIP = `${message} `;
 
       // Enviar el mensaje a Supabase
       const { data: newMessageData, error } = await supabase.from('messages').insert([{ content: messageWithIP }]);
