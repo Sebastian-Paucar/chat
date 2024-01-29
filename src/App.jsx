@@ -54,8 +54,8 @@ function App() {
 
       // Obtener la dirección IP del cliente
       // const response = await fetch('https://api.ipify.org?format=json');
-      //const data = await response.json();
-     // const clientIP = null;
+      const data = await response.json();
+      const clientIP = null;
 
       console.log('Sending message:', message); // Registrar el mensaje y la IP del cliente
       // Agregar la dirección IP al mensaje
