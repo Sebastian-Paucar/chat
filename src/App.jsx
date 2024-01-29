@@ -5,9 +5,15 @@ import MessageList from './components/MessageList';
 import MessageForm from './components/MessageForm';
 import './index.css'; // Estilos globales
 
-const supabaseUrl = import.meta.env.VITE_REACT_APP_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_REACT_APP_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+// const supabaseUrl = import.meta.env.VITE_REACT_APP_SUPABASE_URL;
+// const supabaseKey = import.meta.env.VITE_REACT_APP_SUPABASE_ANON_KEY;
+// const supabase = createClient(supabaseUrl, supabaseKey);
+
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://prlxntqobjozgubcjgzj.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
 
 function App() {
   const [messages, setMessages] = useState([]);
