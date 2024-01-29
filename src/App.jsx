@@ -8,8 +8,8 @@ import './index.css'; // Estilos globales
 // const supabaseUrl = import.meta.env.VITE_REACT_APP_SUPABASE_URL;
 // const supabaseKey = import.meta.env.VITE_REACT_APP_SUPABASE_ANON_KEY;
 // const supabase = createClient(supabaseUrl, supabaseKey);g
-const supabaseUrl = 'https://prlxntqobjozgubcjgzj.supabase.co'
-const supabaseKey = process.env.SUPABASE_KEY
+const supabaseUrl = import.meta.env.VITE_REACT_APP_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_REACT_APP_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 function App() {
